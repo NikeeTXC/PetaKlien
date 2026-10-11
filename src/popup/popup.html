@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetaKlien</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <img class="brand-mark" src="../../icons/icon128.png" alt="" aria-hidden="true">
+      <div class="brand-text">
+        <span class="brand-name">PetaKlien</span>
+        <span class="brand-sub">Prospek Google Maps</span>
+      </div>
+      <span id="popup-version" class="badge badge-neutral">v1.1</span>
+      <button id="theme-btn" class="icon-btn theme-btn" aria-pressed="false" title="Mode gelap" aria-label="Mode gelap"><svg class="icon-sun" width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64 64.07 64.07 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48 48.05 48.05 0 0 0 48-48ZM58.34 69.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm0 116.68-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32ZM192 72a8 8 0 0 0 5.66-2.34l16-16a8 8 0 0 0-11.32-11.32l-16 16A8 8 0 0 0 192 72Zm5.66 114.34a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM48 128a8 8 0 0 0-8-8H16a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8Zm80 80a8 8 0 0 0-8 8v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-8-8Zm112-88h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Z"/></svg><svg class="icon-moon" width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M233.54 142.23a8 8 0 0 0-8-2 88.08 88.08 0 0 1-109.8-109.8 8 8 0 0 0-10-10 104.84 104.84 0 0 0-52.91 37A104 104 0 0 0 136 224a103.09 103.09 0 0 0 62.52-20.88 104.84 104.84 0 0 0 37-52.91 8 8 0 0 0-1.98-7.98Zm-44.64 48.11A88 88 0 0 1 65.66 67.11a89 89 0 0 1 31.4-26A106 106 0 0 0 96 56a104.11 104.11 0 0 0 104 104 106 106 0 0 0 14.92-1.06 89 89 0 0 1-26.02 31.4Z"/></svg></button>
+    </header>
+
+    <!-- Page status -->
+    <section id="tab-status-card" class="status-row">
+      <span id="status-dot" class="status-dot"></span>
+      <span id="status-text" class="status-msg">Memeriksa halaman…</span>
+      <button id="open-maps-btn" class="btn btn-sm" style="display: none;">Buka Maps</button>
+    </section>
+
+    <!-- Stats (LayerCard) -->
+    <section class="layer">
+      <div class="layer-head">Prospek tersimpan</div>
+      <div class="layer-body">
+        <div class="stats-grid">
+          <div class="stat">
+            <span id="stat-total" class="stat-number">0</span>
+            <span class="stat-label">prospek</span>
+          </div>
+          <div class="stat">
+            <span id="stat-noweb" class="stat-number is-brand">0</span>
+            <span class="stat-label">tanpa web</span>
+          </div>
+          <div class="stat">
+            <span id="stat-social" class="stat-number">0</span>
+            <span class="stat-label">medsos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="actions">
+      <button id="popup-open-report" class="btn btn-primary">Buka laporan lengkap</button>
+      <div class="btn-grid">
+        <button id="popup-export-xlsx" class="btn btn-excel">Unduh Excel</button>
+        <button id="popup-export-csv" class="btn">Unduh CSV</button>
+      </div>
+      <button id="popup-restore" class="text-btn is-restore" style="display: none;"></button>
+      <button id="popup-clear-data" class="text-btn is-danger">Hapus semua data</button>
+    </section>
+
+    <!-- Quick guide (LayerCard) -->
+    <section class="layer">
+      <div class="layer-head">Cara pakai</div>
+      <div class="layer-body">
+        <ol class="steps">
+          <li><span class="step-no">1</span><span>Buka Google Maps.</span></li>
+          <li><span class="step-no">2</span><span>Isi jenis usaha &amp; lokasi di panel kanan.</span></li>
+          <li><span class="step-no">3</span><span>Tekan <strong>Mulai otomasi</strong>.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Dialog (Kumo Dialog), replaces native alert/confirm -->
+    <div id="popup-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="popup-modal-stamp">
+        <div class="modal-header">
+          <span id="popup-modal-stamp" class="modal-title">Informasi</span>
+          <button id="popup-modal-close" class="icon-btn" aria-label="Tutup"><svg width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+        </div>
+        <div id="popup-modal-msg" class="modal-body">Pemberitahuan.</div>
+        <div id="popup-modal-actions" class="modal-footer">
+          <button id="popup-modal-ok" class="btn">Mengerti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../libs/xlsx.full.min.js"></script>
+  <script src="../shared/lead-schema.js"></script>
+  <script src="../shared/exporter.js"></script>
+  <script src="../shared/tooltip.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

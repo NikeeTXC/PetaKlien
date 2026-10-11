@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>PetaKlien_Prospek.xlsx - Spreadsheet & Outreach Hub</title>
+  <link rel="icon" href="../../icons/icon32.png">
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <!-- 1a. Excel title bar (green, like desktop Excel) -->
+  <header class="excel-header-ribbon">
+    <div class="excel-title-box">
+      <span class="excel-brand-mark" aria-hidden="true"><img src="../../icons/icon128.png" alt=""></span>
+      <span class="excel-file-name">PetaKlien_Prospek.xlsx</span>
+      <span class="excel-badge-tag">Spreadsheet &amp; Outreach Hub</span>
+    </div>
+    <div class="excel-title-actions">
+      <button id="theme-btn" class="excel-title-close theme-btn" aria-pressed="false" title="Mode gelap" aria-label="Mode gelap"><svg class="icon-sun" width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64 64.07 64.07 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48 48.05 48.05 0 0 0 48-48ZM58.34 69.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm0 116.68-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32ZM192 72a8 8 0 0 0 5.66-2.34l16-16a8 8 0 0 0-11.32-11.32l-16 16A8 8 0 0 0 192 72Zm5.66 114.34a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM48 128a8 8 0 0 0-8-8H16a8 8 0 0 0 0 16h24a8 8 0 0 0 8-8Zm80 80a8 8 0 0 0-8 8v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-8-8Zm112-88h-24a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Z"/></svg><svg class="icon-moon" width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M233.54 142.23a8 8 0 0 0-8-2 88.08 88.08 0 0 1-109.8-109.8 8 8 0 0 0-10-10 104.84 104.84 0 0 0-52.91 37A104 104 0 0 0 136 224a103.09 103.09 0 0 0 62.52-20.88 104.84 104.84 0 0 0 37-52.91 8 8 0 0 0-1.98-7.98Zm-44.64 48.11A88 88 0 0 1 65.66 67.11a89 89 0 0 1 31.4-26A106 106 0 0 0 96 56a104.11 104.11 0 0 0 104 104 106 106 0 0 0 14.92-1.06 89 89 0 0 1-26.02 31.4Z"/></svg></button>
+      <button class="excel-title-close" data-action="close-tab" title="Tutup tab">Tutup <svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+    </div>
+  </header>
+
+  <!-- 1b. Ribbon (Kumo buttons) -->
+  <div class="excel-ribbon">
+    <div class="excel-toolbar">
+      <button class="excel-btn excel-btn-excel" data-action="export-xlsx">Unduh Excel</button>
+      <button class="excel-btn" data-action="export-csv">Unduh CSV</button>
+      <button class="excel-btn" data-action="print">Cetak / PDF</button>
+      <button class="excel-btn" data-action="copy-table">Salin tabel</button>
+      <span class="excel-toolbar-sep" aria-hidden="true"></span>
+      <button id="btn-batch-deepsearch" class="excel-btn" data-action="batch-deepsearch" title="Cek ulang lewat Google Search: prospek tanpa web yang ternyata punya website resmi">Lacak Deep Search massal</button>
+    </div>
+  </div>
+
+  <!-- 1c. Filter bar (#4) -->
+  <div class="excel-filterbar">
+    <label class="excel-search">
+      <input id="report-search" type="search" placeholder="Cari nama, kategori, alamat, telepon…" autocomplete="off" aria-label="Cari prospek" />
+    </label>
+    <div class="excel-chips" role="group" aria-label="Filter prospek">
+      <button type="button" class="excel-chip on" data-action="set-filter" data-filter="all">Semua <span class="chip-count"></span></button>
+      <button type="button" class="excel-chip" data-action="set-filter" data-filter="noweb">Tanpa web <span class="chip-count"></span></button>
+      <button type="button" class="excel-chip" data-action="set-filter" data-filter="social">Medsos <span class="chip-count"></span></button>
+      <button type="button" class="excel-chip" data-action="set-filter" data-filter="pending">Belum dihubungi <span class="chip-count"></span></button>
+      <button type="button" class="excel-chip" data-action="set-filter" data-filter="followup" title="Status Follow-Up, atau Terkirim WA lebih dari 3 hari tanpa kabar">Perlu follow-up <span class="chip-count"></span></button>
+      <button type="button" class="excel-chip" data-action="set-filter" data-filter="unchecked" title="Deep Search gagal karena dibatasi Google">Belum dicek <span class="chip-count"></span></button>
+    </div>
+    <span id="report-filter-info" class="excel-filter-info"></span>
+    <!-- #5 bulk actions (visible while rows are selected) -->
+    <div id="bulk-bar" class="excel-bulk-bar" hidden>
+      <span id="bulk-count" class="bulk-count">0 dipilih</span>
+      <select id="bulk-status" class="excel-status-select bulk-status" aria-label="Ubah status prospek yang dipilih">
+        <option value="" selected disabled>Ubah status…</option>
+        <option value="Belum Dihubungi">Belum Dihubungi</option>
+        <option value="Terkirim WA">Terkirim WA</option>
+        <option value="Tertarik / Follow-Up">Tertarik / Follow-Up</option>
+        <option value="Deal (Klien)">Deal (Klien)</option>
+        <option value="Ditolak">Ditolak</option>
+      </select>
+      <button type="button" class="excel-btn excel-btn-sm is-wa" data-action="bulk-wa" title="Kirim WhatsApp ke prospek terpilih satu per satu (Kirim &amp; lanjut)"><svg width="15" height="15" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>Kirim WA</button>
+      <button type="button" class="excel-btn excel-btn-sm" data-action="bulk-export">Unduh Excel</button>
+      <button type="button" class="excel-btn excel-btn-sm is-danger" data-action="bulk-delete">Hapus</button>
+      <button type="button" class="excel-btn excel-btn-sm excel-btn-ghost" data-action="bulk-clear">Batal</button>
+    </div>
+  </div>
+
+  <!-- 2. Formula bar -->
+  <div class="excel-formula-bar">
+    <div id="excel-active-coord" class="excel-name-box">A1</div>
+    <div class="excel-fx-icon">fx</div>
+    <input id="excel-formula-val" class="excel-formula-input" type="text" readonly value="No" />
+  </div>
+
+  <!-- 3. Spreadsheet grid -->
+  <div class="excel-grid-container">
+    <table id="main-excel-table" class="excel-table">
+      <thead>
+        <tr>
+          <th id="excel-corner" class="excel-corner" title="Klik untuk memilih semua baris yang tampil"></th>
+          <th class="excel-col-letter" data-col="A">A</th>
+          <th class="excel-col-letter" data-col="B">B</th>
+          <th class="excel-col-letter" data-col="C">C</th>
+          <th class="excel-col-letter" data-col="D">D</th>
+          <th class="excel-col-letter" data-col="E">E</th>
+          <th class="excel-col-letter" data-col="F">F</th>
+          <th class="excel-col-letter" data-col="G">G</th>
+          <th class="excel-col-letter" data-col="H">H</th>
+          <th class="excel-col-letter" data-col="I">I</th>
+          <th class="excel-col-letter" data-col="J">J</th>
+          <th class="excel-col-letter" data-col="K">K</th>
+          <th class="excel-col-letter" data-col="L">L</th>
+          <th class="excel-col-letter" data-col="M">M</th>
+          <th class="excel-col-letter" data-col="N">N</th>
+          <th class="excel-col-letter" data-col="O">O</th>
+          <th class="excel-col-letter" data-col="P">P</th>
+          <th class="excel-col-letter" data-col="Q">Q</th>
+          <th class="excel-col-letter" data-col="R">R</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Row 1: column names -->
+        <tr class="excel-header-row" data-row="1">
+          <th class="excel-row-num" title="Baris 1">1</th>
+          <td class="excel-cell text-center" data-col="A" data-coord="A1">No</td>
+          <td class="excel-cell text-left" data-col="B" data-coord="B1">Nama Tempat / Bisnis</td>
+          <td class="excel-cell text-left" data-col="C" data-coord="C1">Kategori Usaha</td>
+          <td class="excel-cell text-center" data-col="D" data-coord="D1">Status Website</td>
+          <td class="excel-cell text-left" data-col="E" data-coord="E1">Link Website Resmi</td>
+          <td class="excel-cell text-left" data-col="F" data-coord="F1">Link Media Sosial</td>
+          <td class="excel-cell text-left" data-col="G" data-coord="G1">Email Kontak / Bisnis</td>
+          <td class="excel-cell text-center" data-col="H" data-coord="H1">Teknologi Website</td>
+          <td class="excel-cell text-left" data-col="I" data-coord="I1">Nomor Telepon</td>
+          <td class="excel-cell text-center" data-col="J" data-coord="J1">Tipe Kontak</td>
+          <td class="excel-cell text-center" data-col="K" data-coord="K1">Aksi WhatsApp</td>
+          <td class="excel-cell text-left" data-col="L" data-coord="L1">Alamat Lengkap</td>
+          <td class="excel-cell text-center" data-col="M" data-coord="M1">Rating</td>
+          <td class="excel-cell text-center" data-col="N" data-coord="N1">Ulasan</td>
+          <td class="excel-cell text-center" data-col="O" data-coord="O1">Status Outreach</td>
+          <td class="excel-cell text-left" data-col="P" data-coord="P1">Google Maps</td>
+          <td class="excel-cell text-center" data-col="Q" data-coord="Q1">Waktu Scrape</td>
+          <td class="excel-cell text-left" data-col="R" data-coord="R1">Catatan</td>
+        </tr>
+      </tbody>
+      <!-- Rows 2..N: rendered by report.js from chrome.storage -->
+      <tbody id="excel-data-rows"></tbody>
+    </table>
+  </div>
+
+  <!-- 4. Sheet tabs & status -->
+  <footer class="excel-bottom-bar">
+    <div class="excel-sheets-nav">
+      <div class="excel-sheet-tab">Sheet1</div>
+      <button type="button" class="excel-shortcuts-btn" aria-label="Pintasan keyboard" title="Pintasan: / cari · panah pindah sel · Enter kirim WA · Spasi pilih baris · N catatan · Esc batal"><svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg></button>
+      <div class="excel-shortcuts" title="Pintasan keyboard">
+        <kbd>/</kbd> cari <kbd>↑↓←→</kbd> pindah sel <kbd>Enter</kbd> kirim WA <kbd>Spasi</kbd> pilih baris <kbd>N</kbd> catatan <kbd>Esc</kbd> batal
+      </div>
+    </div>
+    <div id="excel-status-info" class="excel-status-info">Memuat data…</div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="excel-toast" class="excel-toast" role="status">Data berhasil disalin!</div>
+
+  <!-- Pitch dialog (Kumo Dialog) -->
+  <div id="pitch-modal" class="pitch-modal-overlay">
+    <div class="pitch-modal-card" role="dialog" aria-modal="true" aria-labelledby="pitch-modal-title">
+      <div class="pitch-modal-header">
+        <div class="pitch-modal-heading">
+          <span id="pitch-modal-title">Pesan outreach</span>
+          <span id="pitch-modal-sub" class="pitch-modal-sub"></span>
+        </div>
+        <button class="pitch-close-btn" data-action="close-pitch" aria-label="Tutup"><svg width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+      </div>
+      <div class="pitch-modal-body">
+        <label class="pitch-field">
+          <span class="pitch-label">Tujuan outreach</span>
+          <select id="pitch-intent-select" class="pitch-select">
+            <option value="business">Bisnis: penawaran jasa website &amp; digital</option>
+            <option value="thesis">Kuliah: riset skripsi / tugas akhir (wawancara)</option>
+            <option value="survey">Kuliah: kuesioner &amp; survei penelitian</option>
+            <option value="internship">Kuliah: magang / PKL / studi lapangan</option>
+            <option value="partnership">Kemitraan &amp; kerja sama usaha</option>
+            <option value="custom">Template kustom (buatan sendiri)</option>
+          </select>
+        </label>
+
+        <label id="pitch-category-group" class="pitch-field">
+          <span class="pitch-label">Template industri</span>
+          <select id="pitch-category-select" class="pitch-select">
+            <option value="auto">Deteksi otomatis dari kategori prospek</option>
+            <option value="photo">Fotografi / studio foto / videografi</option>
+            <option value="cafe">Kuliner / kafe / restoran / kedai kopi</option>
+            <option value="clinic">Kesehatan / klinik / dokter / apotek</option>
+            <option value="school">Pendidikan / sekolah / bimbel / kursus</option>
+            <option value="automotive">Otomotif / bengkel / cuci mobil / rental</option>
+            <option value="beauty">Kecantikan / salon / barbershop / spa</option>
+            <option value="property">Properti / kost / penginapan / kontraktor</option>
+            <option value="legal">Jasa profesional / hukum / notaris / akuntan</option>
+            <option value="retail">Toko / retail / butik / bisnis umum</option>
+          </select>
+        </label>
+
+        <div id="custom-template-helper" class="pitch-helper" style="display: none;">
+          <span class="pitch-label">Sisipkan variabel</span>
+          <div class="pitch-chips">
+            <button type="button" class="pitch-chip" data-action="insert-var" data-var="{nama}">{nama}</button>
+            <button type="button" class="pitch-chip" data-action="insert-var" data-var="{kategori}">{kategori}</button>
+            <button type="button" class="pitch-chip" data-action="insert-var" data-var="{alamat}">{alamat}</button>
+            <button type="button" class="pitch-chip" data-action="insert-var" data-var="{rating}">{rating}</button>
+            <button type="button" class="pitch-chip" data-action="insert-var" data-var="{ulasan}">{ulasan}</button>
+          </div>
+          <span class="pitch-label">Template tersimpan</span>
+          <div class="pitch-template-row">
+            <select id="pitch-template-select" class="pitch-select" aria-label="Pilih template tersimpan"></select>
+            <button type="button" id="template-update-btn" class="excel-btn excel-btn-sm" data-action="template-update" title="Simpan draf saat ini ke template yang dipilih">Perbarui</button>
+            <button type="button" id="template-delete-btn" class="excel-btn excel-btn-sm is-danger" data-action="template-delete">Hapus</button>
+          </div>
+          <div class="pitch-template-row">
+            <input id="pitch-template-name" class="pitch-input" type="text" maxlength="40" placeholder="Nama template baru, mis. Penawaran kafe" />
+            <button type="button" class="excel-btn excel-btn-sm" data-action="template-save-new">Simpan sebagai baru</button>
+          </div>
+        </div>
+
+        <div class="pitch-field">
+          <div class="pitch-label-row">
+            <label class="pitch-label" for="pitch-message-text">Draf pesan</label>
+            <span id="pitch-char-count" class="pitch-count">0 karakter</span>
+          </div>
+          <textarea id="pitch-message-text" class="pitch-textarea"></textarea>
+        </div>
+      </div>
+      <div class="pitch-modal-footer">
+        <button class="excel-btn excel-btn-ghost" data-action="open-google-search" title="Cek website tersembunyi di Google Search">Cek di Google</button>
+        <span class="pitch-footer-spacer"></span>
+        <button class="excel-btn" data-action="copy-pitch">Salin pesan</button>
+        <button id="btn-open-wa" class="excel-btn" data-action="send-wa" title="Buka WhatsApp untuk prospek ini">Buka WhatsApp</button>
+        <button id="btn-send-next" class="excel-btn excel-btn-primary" data-action="send-next" title="Kirim ke prospek ini, lalu lanjut ke prospek berikutnya yang belum dihubungi">Kirim &amp; lanjut <svg width="14" height="14" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Choice dialog (export scope) -->
+  <div id="choice-modal" class="pitch-modal-overlay">
+    <div class="pitch-modal-card choice-card" role="dialog" aria-modal="true" aria-labelledby="choice-title">
+      <div class="pitch-modal-header">
+        <span id="choice-title">Pilih data</span>
+        <button id="choice-close" class="pitch-close-btn" aria-label="Tutup"><svg width="16" height="16" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+      </div>
+      <div class="pitch-modal-body"><p id="choice-text" class="choice-text"></p></div>
+      <div id="choice-actions" class="pitch-modal-footer choice-actions"></div>
+    </div>
+  </div>
+
+  <script src="../../libs/xlsx.full.min.js"></script>
+  <script src="../shared/lead-schema.js"></script>
+  <script src="../shared/deep-search.js"></script>
+  <script src="../shared/exporter.js"></script>
+  <script src="../shared/tooltip.js"></script>
+  <script src="pitch-templates.js"></script>
+  <script src="report.js"></script>
+</body>
+</html>

@@ -13,13 +13,19 @@ Ekstensi Chrome untuk freelancer dan agensi yang mencari klien, juga mahasiswa y
 [![Lisensi MIT](https://img.shields.io/badge/lisensi-MIT-16a34a?style=flat-square)](LICENSE)
 [![Data lokal](https://img.shields.io/badge/data-100%25%20lokal-0f766e?style=flat-square)](#privasi-dan-izin)
 
-[Fitur](#fitur) · [Instalasi](#instalasi) · [Cara pakai](#cara-pakai) · [FAQ](#pertanyaan-umum) · [Pengembangan](#pengembangan) · [Rilis](https://github.com/NikeeTXC/PetaKlien/releases)
+[Demo](#demo) · [Fitur](#fitur) · [Instalasi](#instalasi) · [Cara pakai](#cara-pakai) · [FAQ](#pertanyaan-umum) · [Pengembangan](#pengembangan) · [Rilis](https://github.com/NikeeTXC/PetaKlien/releases)
 
 <br />
 
 <img src="docs/images/hero.png" alt="Sidebar PetaKlien (mode terang dan gelap), popup, dan tombol samping berstatus" width="100%" />
 
 </div>
+
+## Demo
+
+Dari mencari prospek sampai mengirim WhatsApp dan mengunduh Excel, dalam 40 detik:
+
+https://github.com/user-attachments/assets/30d428f2-483c-4912-a96b-7db1d097a2d6
 
 ## Fitur
 

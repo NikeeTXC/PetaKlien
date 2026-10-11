@@ -1,0 +1,23 @@
+{
+  "name": "petaklien",
+  "version": "1.2.0",
+  "description": "Chrome Extension Pemindai Prospek Google Maps & Pelacak Website Klien Mandiri",
+  "main": "src/content/content.js",
+  "scripts": {
+    "test": "node test/unit.test.js && node test/dom.test.js",
+    "verify": "node scripts/build-release.js --check",
+    "build": "npm test && node scripts/build-release.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "google-maps-scraper",
+    "lead-generation",
+    "crm",
+    "petaklien"
+  ],
+  "author": "NikeeTXC",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

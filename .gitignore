@@ -1,0 +1,40 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Agent & AI metadata
+.agents/
+skills-lock.json
+
+# Logs & temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.zip
+
+# Dependencies
+node_modules/
+
+# Release builds (npm run build)
+dist/
+
+# Dokumen internal: hanya README.md yang dipublikasikan
+*.md
+!README.md

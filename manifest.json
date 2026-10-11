@@ -1,0 +1,77 @@
+{
+  "manifest_version": 3,
+  "name": "PetaKlien - Cari & Hubungi Prospek",
+  "short_name": "PetaKlien",
+  "version": "1.2.0",
+  "homepage_url": "https://github.com/NikeeTXC/PetaKlien",
+  "description": "Kumpulkan data usaha dan tempat dari Google Maps, temukan yang belum punya website, hubungi lewat WhatsApp, dan ekspor ke Excel.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "PetaKlien",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.google.com/maps/*",
+    "https://maps.google.com/*",
+    "https://www.google.co.id/maps/*",
+    "https://maps.google.co.id/*",
+    "https://www.google.com/search*",
+    "https://www.google.co.id/search*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/maps/*",
+        "https://maps.google.com/*",
+        "https://www.google.co.id/maps/*",
+        "https://maps.google.co.id/*"
+      ],
+      "js": [
+        "libs/xlsx.full.min.js",
+        "src/shared/lead-schema.js",
+        "src/shared/deep-search.js",
+        "src/shared/exporter.js",
+        "src/shared/tooltip.js",
+        "src/content/overlay.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*",
+        "fonts/*.woff2"
+      ],
+      "matches": [
+        "https://www.google.com/*",
+        "https://maps.google.com/*",
+        "https://www.google.co.id/*",
+        "https://maps.google.co.id/*"
+      ]
+    }
+  ]
+}

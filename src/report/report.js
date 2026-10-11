@@ -602,16 +602,24 @@
     return !outreachKeys || outreachKeys.has(leadKey(l));
   }
 
-  function pendingQueue() {
-    return leads.filter((l) => isPending(l) && hasWhatsApp(l) && inOutreach(l));
+  /** Rows the outreach walks through: the table as shown (filter, search, sort) when the lead is in it. */
+  function outreachList(lead) {
+    const shown = visibleRows().map(([l]) => l);
+    const key = lead && leadKey(lead);
+    return !key || shown.some((l) => leadKey(l) === key) ? shown : leads;
   }
 
-  /** Next pending lead after `lead` in table order (wraps around), or null. */
+  function pendingQueue(lead) {
+    return outreachList(lead).filter((l) => isPending(l) && hasWhatsApp(l) && inOutreach(l));
+  }
+
+  /** Next pending lead after `lead` in the shown table order (wraps around), or null. */
   function nextPendingLead(lead) {
     const key = leadKey(lead);
-    const start = leads.findIndex((l) => leadKey(l) === key);
-    for (let step = 1; step <= leads.length; step++) {
-      const candidate = leads[(start + step) % leads.length];
+    const list = outreachList(lead);
+    const start = list.findIndex((l) => leadKey(l) === key);
+    for (let step = 1; step <= list.length; step++) {
+      const candidate = list[(start + step) % list.length];
       if (candidate && leadKey(candidate) !== key && isPending(candidate) && hasWhatsApp(candidate) && inOutreach(candidate)) return candidate;
     }
     return null;
@@ -620,7 +628,7 @@
   function updatePitchProgress() {
     const sub = $("pitch-modal-sub");
     if (!sub || !currentPitchLead) return;
-    const remaining = pendingQueue().length;
+    const remaining = pendingQueue(currentPitchLead).length;
     const scope = outreachKeys ? " dari pilihan" : "";
     sub.textContent = remaining > 0
       ? `${remaining} prospek ber-WhatsApp${scope} belum dihubungi`

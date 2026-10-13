@@ -8,7 +8,7 @@
 
 Ekstensi Chrome untuk freelancer dan agensi yang mencari klien, juga mahasiswa yang mencari responden, tempat riset, atau magang.
 
-[![Versi](https://img.shields.io/badge/versi-1.2.0-2563eb?style=flat-square)](https://github.com/NikeeTXC/PetaKlien/releases)
+[![Versi](https://img.shields.io/badge/versi-1.2.1-2563eb?style=flat-square)](https://github.com/NikeeTXC/PetaKlien/releases)
 [![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
 [![Lisensi MIT](https://img.shields.io/badge/lisensi-MIT-16a34a?style=flat-square)](LICENSE)
 [![Data lokal](https://img.shields.io/badge/data-100%25%20lokal-0f766e?style=flat-square)](#privasi-dan-izin)

@@ -102,8 +102,7 @@ button { font: inherit; color: inherit; letter-spacing: inherit; border: 0; back
 .layer-body {
   padding: 12px;
   background: var(--k-base);
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px var(--k-fill);
+  border-top: 1px solid var(--k-fill);
 }
 
 /* Stats */

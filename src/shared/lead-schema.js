@@ -6,7 +6,7 @@
 (function (root) {
   "use strict";
 
-  const SCHEMA_VERSION = "1.2.0";
+  const SCHEMA_VERSION = "1.2.1";
 
   // Unified Status Mapping
   const STATUS_KIND = {

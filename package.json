@@ -1,6 +1,6 @@
 {
   "name": "petaklien",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Chrome Extension Pemindai Prospek Google Maps & Pelacak Website Klien Mandiri",
   "main": "src/content/content.js",
   "scripts": {

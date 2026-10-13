@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "PetaKlien - Cari & Hubungi Prospek",
   "short_name": "PetaKlien",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage_url": "https://github.com/NikeeTXC/PetaKlien",
   "description": "Kumpulkan data usaha dan tempat dari Google Maps, temukan yang belum punya website, hubungi lewat WhatsApp, dan ekspor ke Excel.",
   "icons": {
